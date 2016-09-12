@@ -20,8 +20,8 @@ using namespace std;
 const string allCharacters = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 static const int MAX = 10000;
 string StringList[MAX];
-void ProblemOne(int NumberOfStrings, int StringLength);
-void ProblemTwo( int NumberOfStrings, int StringLength);
+void WordGenerator(int NumberOfStrings, int StringLength);
+void SortWords( int NumberOfStrings, int StringLength);
 
 //===================================================================================================
 
@@ -49,7 +49,7 @@ void WordGenerator (int NumberOfStrings, int StringLength)
 
 //=============================================================================================
 
- void ProblemTwo(int NumberOfStrings, int StringLength)
+ void SortWords(int NumberOfStrings, int StringLength)
 {
     
     cout << "----------------------------------------"<< endl;
@@ -99,7 +99,7 @@ int main()
     cout << "-----------------------------------" << endl;
     
     WordGenerator(NumberOfStrings, StringLength);
-    ProblemTwo(NumberOfStrings, StringLength);
+    SortWords(NumberOfStrings, StringLength);
     cout << "====================================" << endl;
     cout << "Done" << endl;
     //ProblemThree();
