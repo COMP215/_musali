@@ -19,51 +19,37 @@ using namespace std;
 //===================================================================================================
 const string allCharacters = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 static const int MAX = 10000;
-string stringList[MAX];
-void one(int numberOfStrings, int stringLength);
-void two( int numberOfStrings, int stringLength);
-//const int howLong = 3;
+string StringList[MAX];
+void ProblemOne(int NumberOfStrings, int StringLength);
+void ProblemTwo( int NumberOfStrings, int StringLength);
+
 //===================================================================================================
 
-void wordGenerator (int numberOfStrings, int stringLength)
+void WordGenerator (int NumberOfStrings, int StringLength)
 {
     ofstream outfile("outfile.txt");
     srand(time(NULL));
     
-   /* int stringLength; int numberOfStrings;
-    
-    cout << "How many number of strings do you want";
-    cin >> numberOfStrings;
-    cout << "How long should the string be";
-    cin >> stringLength;*/
-    
-    for( short i = 0; i < numberOfStrings; i++)
+    for( short i = 0; i < NumberOfStrings; i++)
     {
         string newWord = " ";
-        for(short i = 0; i<stringLength; i++)
+        for(short i = 0; i<StringLength; i++)
         {
             int t = rand();
-            newWord = newWord + (allCharacters[t % allCharacters.length()]);
+            NewWord = NewWord + (allCharacters[t % allCharacters.length()]);
 
         }
-        cout<<newWord<<endl;
-       //stringList[i] = newString;
-        outfile << newWord << endl;
-       /* //outfile << stringList[i] << endl;
-        fstream fs;
-        fs.open("outfile.txt");
-        
-       // sort(stringList[i].begin(), stringList[i].end());
-       // sort(stringList, stringList + numberOfStrings);
-       // cout<< stringList[i] << endl;*/
+        cout<<NewWord<<endl;
+        outfile << NewWord << endl;
+
     }
     outfile.close();
-    //return numberOfStrings;
+
 }
 
 //=============================================================================================
 
- void problemTwo(int numberOfStrings, int stringLength)
+ void ProblemTwo(int NumberOfStrings, int StringLength)
 {
     
     cout << "----------------------------------------"<< endl;
@@ -74,35 +60,25 @@ void wordGenerator (int numberOfStrings, int stringLength)
     
     if(fs.is_open())
     {
-        for( short i = 0; i<numberOfStrings; i++)
+        for( short i = 0; i<NumberOfStrings; i++)
         {
-            fs >> stringList[i];
+            fs >> StringList[i];
         }
-        sort(stringList, stringList + numberOfStrings);
+        sort(StringList, StringList + NumberOfStrings);
     }
     fs << "===============" << "Here are the sorted words" <<"=========" << endl;
-    for (short i = 0; i<numberOfStrings; i++)
+    for (short i = 0; i<NumberOfStrings; i++)
     {
-        cout << stringList[i] << endl;
-        fs << stringList[i] << endl;
-        /*  string stringTempList[MAX];
-        stringTempList[i]= stringList [i];
-        while (fs << newString)
-        {
-            if (newString == stringTempList[i])
-                {
-                    newString = stringTempList[i];
-                }
-                
-        }*/
-        
+        cout << StringList[i] << endl;
+        fs << StringList[i] << endl;
+       
     }
     
 }
 //===================================================================================================
-/*void problemThree()
+/*void ProblemThree()
 {
-    problemTwo(numberOfStrings, stringList)
+    ProblemTwo(NumberOfStrings, StringList)
     cout << "------------------------------------" <<endl;
     for (short i = 0; i < howLong; i++)
     {
@@ -114,18 +90,18 @@ void wordGenerator (int numberOfStrings, int stringLength)
 
 int main()
 {
-    int stringLength; int numberOfStrings;
+    int StringLength; int NumberOfStrings;
     
     cout << "How many number of strings do you want";
-    cin >> numberOfStrings;
+    cin >> NumberOfStrings;
     cout << "How long should the string be";
-    cin >> stringLength;
+    cin >> StringLength;
     cout << "-----------------------------------" << endl;
     
-    wordGenerator(numberOfStrings, stringLength);
-    problemTwo(numberOfStrings, stringLength);
+    WordGenerator(NumberOfStrings, StringLength);
+    ProblemTwo(NumberOfStrings, StringLength);
     cout << "====================================" << endl;
     cout << "Done" << endl;
-    //problemThree();
+    //ProblemThree();
     
 }
