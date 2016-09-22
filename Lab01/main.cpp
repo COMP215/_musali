@@ -20,27 +20,27 @@ using namespace std;
 const string allCharacters = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 static const int MAX = 10000;
 string StringList[MAX];
-void WordGenerator(int NumberOfStrings, int StringLength);
-void SortWords( int NumberOfStrings, int StringLength);
+void WordGenerator(int strings, int stringLength);
+void SortWords( int strings, int stringLength);
 
 //===================================================================================================
 
-void WordGenerator (int NumberOfStrings, int StringLength)
+void WordGenerator (int strings, int stringLength)
 {
     ofstream outfile("outfile.txt");
     srand(time(NULL));
     
-    for( short i = 0; i < NumberOfStrings; i++)
+    for( short i = 0; i < strings; i++)
     {
         string newWord = " ";
-        for(short i = 0; i<StringLength; i++)
+        for(short i = 0; i< stringLength; i++)
         {
             int t = rand();
-            NewWord = NewWord + (allCharacters[t % allCharacters.length()]);
+            newWord = newWord + (allCharacters[t % allCharacters.length()]);
 
         }
-        cout<<NewWord<<endl;
-        outfile << NewWord << endl;
+        cout<<newWord<<endl;
+        outfile << newWord << endl;
 
     }
     outfile.close();
@@ -49,7 +49,7 @@ void WordGenerator (int NumberOfStrings, int StringLength)
 
 //=============================================================================================
 
- void SortWords(int NumberOfStrings, int StringLength)
+ void SortWords(int strings, int stringLength)
 {
     
     cout << "----------------------------------------"<< endl;
@@ -60,17 +60,17 @@ void WordGenerator (int NumberOfStrings, int StringLength)
     
     if(fs.is_open())
     {
-        for( short i = 0; i<NumberOfStrings; i++)
+        for( short i = 0; i< strings; i++)
         {
-            fs >> StringList[i];
+            fs >> stringList[i];
         }
-        sort(StringList, StringList + NumberOfStrings);
+        sort(stringList, stringList + strings);
     }
     fs << "===============" << "Here are the sorted words" <<"=========" << endl;
-    for (short i = 0; i<NumberOfStrings; i++)
+    for (short i = 0; i< strings; i++)
     {
-        cout << StringList[i] << endl;
-        fs << StringList[i] << endl;
+        cout << stringList[i] << endl;
+        fs << stringList[i] << endl;
        
     }
     
@@ -90,16 +90,16 @@ void WordGenerator (int NumberOfStrings, int StringLength)
 
 int main()
 {
-    int StringLength; int NumberOfStrings;
+    int stringLength; int strings;
     
     cout << "How many number of strings do you want";
-    cin >> NumberOfStrings;
+    cin >> strings;
     cout << "How long should the string be";
-    cin >> StringLength;
+    cin >> stringLength;
     cout << "-----------------------------------" << endl;
     
-    WordGenerator(NumberOfStrings, StringLength);
-    SortWords(NumberOfStrings, StringLength);
+    WordGenerator(strings, stringLength);
+    SortWords(strings, stringLength);
     cout << "====================================" << endl;
     cout << "Done" << endl;
     //ProblemThree();
